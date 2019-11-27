@@ -1,5 +1,9 @@
 package br.uefs.ecomp.upa.model;
-
+/**
+ * 
+ * @author dsrs
+ *
+ */
 public class Doctor {
     private String name;
     private String crm;

@@ -4,15 +4,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+/**
+ * 
+ * @author dsrs
+ *
+ */
 public class LinkListTest {
 
 	LinkList list;
-	Object data1, data2, data3, data4, data5;
+	Link data1, data2, data3, data4, data5;
 	
 	@BeforeEach
 	public void setup() {
-		list = new LinkList(); 
+		list = new LinkList();
+		data1 = new Link(2, 0);
+		data2 = new Link(3, 2);
+		data3 = new Link(4, 1);
+		data4 = new Link(1, 3);
+		data5 = new Link(0, 0);
 	}
 	
 	@Test
@@ -20,21 +29,12 @@ public class LinkListTest {
 		assertFalse(list == null);
 	}
 	
-	@BeforeEach
-	public void creatLinks() {
-		data1 = new Link(2, 0);
-		data2 = new Link(3, 3);
-		data3 = new Link(4, 4);
-		data4 = new Link(1, 1);
-		data5 = new Link(0, 0);
-	}
-	
-	@Test
+/*	@Test
 	public void insertFirstTest() {
-		list.insertFirst((Link) data1);
-		list.insertFirst((Link) data2);
-		list.insertFirst((Link) data3);
-		list.insertFirst((Link) data4);
+		list.insertFirst(data1);
+		list.insertFirst(data2);
+		list.insertFirst(data3);
+		list.insertFirst(data4);
 		
 		Link x = list.getFirst();
 		
@@ -49,15 +49,15 @@ public class LinkListTest {
 		assertEquals(data1, x);
 		x = x.next;
 		assertNull(x);
-	}
+	} 
 	
 	@Test
 	public void insertLastTest() {
-		list.insertFirst((Link) data1);
-		list.insertFirst((Link) data2);
-		list.insertFirst((Link) data3);
-		list.insertFirst((Link) data4);
-		list.insertLast((Link) data5);
+		list.insertFirst(data1);
+		list.insertFirst(data2);
+		list.insertFirst(data3);
+		list.insertFirst(data4);
+		list.insertLast(data5);
 		
 		Link x = list.getFirst();
 		
@@ -74,27 +74,55 @@ public class LinkListTest {
 		assertEquals(data5, x);
 		x = x.next;
 		assertNull(x);
-	}
-	
-	@BeforeEach
-	public void insertForDelet() {
-		list.insertFirst((Link) data1);
-		list.insertFirst((Link) data2);
-		list.insertFirst((Link) data3);
-		list.insertFirst((Link) data4);
-		list.insertLast((Link) data5);
-		
-	}
+	} 
 	
 	@Test
 	public void deletFirstTest() {
+		list = new LinkList();
+		list.insertFirst(data2);
+		list.insertFirst(data3);
+		list.insertFirst(data5);
+		list.insertFirst(data1);
+		list.insertLast(data4);
+		
+		
 		assertEquals(5, list.size);
-		//assertEquals(data4, list.deleleFirst());
-		//assertEquals(data3, list.deleleFirst());
-		//assertEquals(data2, list.deleleFirst());
-		//assertEquals(data1, list.deleleFirst());
-		//assertEquals(data5, list.deleleFirst());
-		//assertEquals(0, list.size);
+		assertEquals(data1, list.deleleFirst());
+		assertEquals(data5, list.deleleFirst());
+		assertEquals(data3, list.deleleFirst());
+		assertEquals(data2, list.deleleFirst());
+		assertEquals(data4, list.deleleFirst());
+		assertEquals(0, list.size);
+	} */
+	
+	@Test
+	public void insertTest() {
+		list = new LinkList();
+		assertEquals(0, list.size);
+		assertNull(list.getFirst());
+		list.insert(data1);  // 0
+		//assertNull(list.getFirst());
+		list.insert(data2);  // 2
+		list.insert(data3);  // 1
+		list.insert(data4);  // 3
+		list.insert(data5); // 0
+		
+		Link x = list.getFirst();
+		
+		assertEquals(data4, list.getLast());
+		
+		assertEquals(data1, x);
+		x = x.next;
+		assertEquals(data5, x);
+		x = x.next;
+		assertEquals(data3, x);
+		x = x.next;
+		assertEquals(data2, x);
+		x = x.next;
+		assertEquals(data4, x);
+		x = x.next;
+		assertNull(x);
+		
 	}
 
 

@@ -1,0 +1,131 @@
+package br.uefs.ecomp.upa.util;
+
+public class LinkList {
+    private Link first;
+    private Link last;
+    public int size;
+    
+    public LinkList() {
+    	size = 0;
+    }
+    
+    // Insere elemento de forma prioritaria na lista
+    
+    public Link insert(Link element) { //recebe como arumento um nó
+    	Link a = null;
+    	if(first == null) { //verifica se ta vazia, se sim, insere em first
+    		first = element;
+    		last =  element;
+    		size++;
+    		return first;
+    	}
+    	else { //se nao vazia
+    		int p = element.priority; // pega a prioridade do novo nó
+    		if(p == 4) { // se for 4 (baixa prioridade) poe no fim da fila
+    			return insertLast(element);
+    		}
+    		else { // se não for a mais baixa
+    			Link previous = first; //na lista encadeada o elemento anterior
+    			Link current = first; // e o elemento atual, os dois comecam do inicio da lista
+    			while(current != null) { //enquanto a lista não acabar
+    				if(p >= previous.priority && p < current.priority && previous != current) { //se o novo elemento tiver prioridade maior que o anterior e menor que o atual...
+        				previous.next = element; //insere entre os dois
+        				element.next = current;
+        				size++;
+        				return previous.next;
+        			}
+        			previous = current; // caso não continua procurando
+        			current = current.next;
+    			}
+    			if(current == null) { // se não encontrou vai pro fim da fila
+    				return insertLast(element);
+    			}
+    		}
+    	    
+    	}
+		return a;
+    }
+    
+    // Insere elemento na primeira posição 
+    
+    public void insertFirst(Link element) {
+    	if(first == null) {
+    		first = element;
+    		last =  element;
+    	}
+    	else {
+    		element.next = first;
+    		first = element;
+    	}
+    	size++;
+    }
+    
+    // Insere elemento na ultima poscição
+    
+    public Link insertLast(Link element) {
+    	if(first == null) {
+    		first = element;
+    		last =  element;
+    		size++;
+    		return first;
+    	}
+    	else {
+    		last.next = element;
+    		last = element;
+    		size++;
+    		return last;
+    	}
+    	
+    }
+    
+    // Deleta o primeiro elemento
+    
+    public Link deleleFirst() {
+    	Link temp = first;
+    	if(temp == null) {
+    		return temp;
+    	}
+    	first = first.next;
+    	if(first == null) {
+    		last = null;
+    	}
+    	size--;
+    	return temp;
+    }
+    
+    // Deleta elemento especifico
+    
+    public Link delete(Link search) {
+    	Link current = first;
+    	Link previous = null;
+    	if(current == search) {
+    		first = first.next;
+    		if(first == null) {
+    			last = null;
+    		}
+    		return current;
+    	}
+    	while(current != null) {
+    		if(current == search) {
+    			previous.next = current.next;
+    			return current;
+    		}
+    		previous = current;
+    		current = current.next;
+    	}
+    	
+    	return current;
+    }
+    
+    // pega o primeiro elemento
+    
+    public Link getFirst() {
+    	return first;
+    }
+    
+    // Pega o ultimo elemento
+    
+    public Link getLast() {
+    	return last;
+    }
+}

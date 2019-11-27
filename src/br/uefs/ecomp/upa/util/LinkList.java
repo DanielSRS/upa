@@ -1,75 +1,136 @@
 package br.uefs.ecomp.upa.util;
-
-public class LinkList {
+/**
+ * 
+ * @author dsrs
+ *
+ */
+public class LinkList
+    {
     private Link first;
     private Link last;
     public int size;
     
-    public LinkList() {
-    	size = 0;
-    }
+    //_________________________________________________________
+    public LinkList()
+        {
+        size = 0;
+        }
+    /**
+     * 
+     * @param element
+     * @return
+     */
+    public boolean insert(Link element)
+        {
+        int priority = element.priority;
+        Link previous = this.first;
+        Link current = this.first;
+        
+        do
+            {
+            if(size == 0)
+                {
+                first = element;
+                last = element;
+                size++;
+                return true;
+                }
+            else if(size == 1)
+                {
+                if(priority < current.priority)
+                    {
+                    element.next = first;
+                    first = element;
+                    size++;
+                    return true;
+                    }
+                else
+                    {
+                    first.next = element;
+                    last = element;
+                    size++;
+                    return true;
+                    }
+                }
+            else
+                {
+                if(current != previous && priority >= previous.priority && priority < current.priority)
+                    {
+                    element.next = current;
+                    previous.next = element;
+                    size++;
+                    return true;
+                    }
+                
+                }
+            previous = current;
+            current = current.next;
+            }while(current != null);
+        if(priority >= previous.priority && current == null)
+        	{
+	        last.next = element;
+	        last = element;
+	        size++;
+	        return true;
+        	}
+        return false;
+        }
+        
+    public Link deleteFirst()
+        {
+        Link temp = this.first;
+        if(temp == null)
+            {
+            return temp;
+            }
+        first = first.next;
+        if(first == null)
+            {
+            last = null;
+            }
+        size--;
+        return temp;
+        }
     
-    public void insertFirst(Link element) {
-    	if(first == null) {
+    public boolean insertLast(Link element) 
+    	{
+    	if(first == null) 
+    		{
     		first = element;
     		last =  element;
-    	}
-    	else {
-    		element.next = first;
-    		first = element;
-    	}
-    	size++;
-    }
-    
-    public void insertLast(Link element) {
-    	if(first == null) {
-    		first = element;
-    		last =  element;
-    	}
-    	else {
+    		size++;
+    		return true;
+    		}
+    	else
+    		{
     		last.next = element;
     		last = element;
-    	}
-    	size++;
-    }
-    
-    public Link deleleFirst() {
-    	Link temp = first;
-    	if(temp == null) {
-    		return temp;
-    	}
-    	first = first.next;
-    	size--;
-    	return temp;
-    }
-    
-    public Link delete(Link search) {
-    	Link current = first;
-    	Link previous = null;
-    	if(current == search) {
-    		first = first.next;
-    		if(first == null) {
-    			last = null;
+    		size++;
+    		return true;
     		}
-    		return current;
     	}
-    	while(current != null) {
-    		if(current == search) {
-    			previous.next = current.next;
-    			return current;
-    		}
-    		previous = current;
-    		current = current.next;
+    /**
+     * 
+     * @return
+     */
+    public Link listAll()
+    	{
+    	return this.first;
     	}
-    	
-    	return current;
+    /**
+     * 
+     * @return 
+     */
+    public Link getFirst()
+        {
+        return this.first;
+        }
+    /**
+     * 
+     * @return
+     */
+    public Link getLast()
+        {
+        return this.last;
+        }
     }
-    
-    public Link getFirst() {
-    	return first;
-    }
-    
-    public Link getLast() {
-    	return last;
-    }
-}
