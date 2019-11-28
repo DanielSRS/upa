@@ -1,25 +1,48 @@
 package br.uefs.ecomp.upa.model;
 /**
  * 
- * @author dsrs
+ * @author Daniel Santa Rosa Santos
  *
  */
 public class Doctor {
     private String name;
     private String crm;
     
-    public Doctor(String name, String crm) {
+    /**
+     * 
+     * @param name
+     * @param crm
+     */
+    public Doctor(String name, String crm) 
+    	{
     	this.name = name;
     	this.crm = crm;
-    }
+    	}
     
-    public void setName(String newName) {
+    /**
+     * 
+     * @param newName
+     */
+    public void setName(String newName) 
+    	{
     	this.name = newName;
-    }
-    public String getName() {
+    	}
+    
+    /**
+     * 
+     * @return
+     */
+    public String getName() 
+    	{
     	return this.name;
-    }
-    public String getCRM() {
+    	}
+    
+    /**
+     * 
+     * @return
+     */
+    public String getCRM() 
+    	{
     	return this.crm;
-    }
+    	}
 }

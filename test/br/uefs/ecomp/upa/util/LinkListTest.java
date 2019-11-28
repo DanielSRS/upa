@@ -6,28 +6,31 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 /**
  * 
- * @author dsrs
+ * @author Daniel Santa Rosa Santos
  *
  */
-public class LinkListTest {
+public class LinkListTest 
+	{
 
 	LinkList list;
 	Link data1, data2, data3, data4, data5;
 	
 	@BeforeEach
-	public void setup() {
+	public void setup() 
+		{
 		list = new LinkList();
 		data1 = new Link(2, 0);
 		data2 = new Link(3, 2);
 		data3 = new Link(4, 1);
 		data4 = new Link(1, 3);
 		data5 = new Link(0, 0);
-	}
+		}
 	
 	@Test
-	public void instaceTest() {
+	public void instaceTest() 
+		{
 		assertFalse(list == null);
-	}
+		}
 	
 /*	@Test
 	public void insertFirstTest() {
@@ -96,16 +99,18 @@ public class LinkListTest {
 	} */
 	
 	@Test
-	public void insertTest() {
+	public void insertTest() 
+		{
 		list = new LinkList();
+		
 		assertEquals(0, list.size);
 		assertNull(list.getFirst());
-		list.insert(data1);  // 0
-		//assertNull(list.getFirst());
-		list.insert(data2);  // 2
-		list.insert(data3);  // 1
-		list.insert(data4);  // 3
-		list.insert(data5); // 0
+		
+		list.insert(data1);
+		list.insert(data2);
+		list.insert(data3);
+		list.insert(data4);
+		list.insert(data5);
 		
 		Link x = list.getFirst();
 		
@@ -123,7 +128,7 @@ public class LinkListTest {
 		x = x.next;
 		assertNull(x);
 		
-	}
+		}
 
 
 }

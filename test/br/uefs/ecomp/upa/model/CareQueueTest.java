@@ -4,10 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import br.uefs.ecomp.upa.util.Link;
 import br.uefs.ecomp.upa.util.Queue;
 
+/**
+ * 
+ * @author Daniel Santa Rosa Santos
+ *
+ */
 public class CareQueueTest {
 
 	private CareQueue care;

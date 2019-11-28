@@ -3,21 +3,40 @@ package br.uefs.ecomp.upa.model;
 import br.uefs.ecomp.upa.util.Link;
 import br.uefs.ecomp.upa.util.LinkList;
 
+/**
+ * 
+ * @author Daniel Santa Rosa Santos
+ *
+ */
 public class ExamList {
     private Patient patient;
     private LinkList list;
     
+    /**
+     * 
+     * @param p
+     * @param exam
+     */
     public ExamList(Patient p, String exam)
     	{
     	this.patient = p;
     	this.list.insert(new Link(exam, 0));
     	}
     
+    /**
+     * 
+     * @param exam
+     */
     public void addExam(String exam) 
     	{
     	list.insert(new Link(exam, 0));
     	}
     
+    /**
+     * 
+     * @param exam
+     * @return
+     */
     public Link searchExam(String exam) 
     	{
     	Link aux = this.list.getFirst();
@@ -35,6 +54,10 @@ public class ExamList {
     	return null;
     	}
     
+    /**
+     * 
+     * @param exam
+     */
     public void deleteExam(String exam) 
     	{
     	Link o,p;
@@ -52,11 +75,18 @@ public class ExamList {
     		}
     	}
     
+    /**
+     * 
+     */
     public Link listExams() 
     	{
     	return list.listAll();
     	}
    
+    /**
+     * 
+     * @return
+     */
     public Patient getPatient() 
     	{
     	return this.patient;

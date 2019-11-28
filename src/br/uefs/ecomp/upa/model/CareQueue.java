@@ -6,7 +6,7 @@ import br.uefs.ecomp.upa.util.Queue;
 
 /**
  * 
- * @author dsrs
+ * @author Daniel Santa Rosa Santos
  *
  */
 public class CareQueue {
@@ -88,6 +88,7 @@ public class CareQueue {
 		
 		return null;
 		}
+	
 	/**
 	 * 
 	 * @param crm

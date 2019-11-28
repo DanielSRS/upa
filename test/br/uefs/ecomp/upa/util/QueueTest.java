@@ -5,13 +5,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class QueueTest {
+/**
+ * 
+ * @author Daniel Santa Rosa Santos
+ *
+ */
+public class QueueTest 
+	{
 
 	Queue queue;
 	Link data1, data2, data3, data4, data5, data6, data7;
 	
 	@BeforeEach
-	void test() {
+	void test() 
+		{
 		queue = new Queue();
 		data1 = new Link(1, 1);
 		data2 = new Link(3, 0);
@@ -20,10 +27,11 @@ public class QueueTest {
 		data5 = new Link(0, 0);
 		data6 = new Link(5, 1);
 		data7 = new Link(7, 4);
-	}
+		}
 	
 	@Test
-	void insertDeletTest() {
+	void insertDeletTest() 
+		{
 		boolean o;
 		o = queue.insert(data1);
 		assertTrue(o);
@@ -49,6 +57,6 @@ public class QueueTest {
 		assertEquals(data3, queue.delete());
 		assertEquals(data7, queue.delete());
 	
-	}
+		}
 
-}
+	}

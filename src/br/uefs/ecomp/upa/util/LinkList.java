@@ -1,7 +1,7 @@
 package br.uefs.ecomp.upa.util;
 /**
  * 
- * @author dsrs
+ * @author Daniel Santa Rosa Santos
  *
  */
 public class LinkList
@@ -10,11 +10,14 @@ public class LinkList
     private Link last;
     public int size;
     
-    //_________________________________________________________
+    /**
+     * 
+     */
     public LinkList()
         {
         size = 0;
         }
+    
     /**
      * 
      * @param element
@@ -109,6 +112,7 @@ public class LinkList
     		return true;
     		}
     	}
+    
     /**
      * 
      * @return
@@ -117,6 +121,7 @@ public class LinkList
     	{
     	return this.first;
     	}
+    
     /**
      * 
      * @return 
@@ -125,6 +130,7 @@ public class LinkList
         {
         return this.first;
         }
+    
     /**
      * 
      * @return
