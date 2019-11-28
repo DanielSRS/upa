@@ -124,4 +124,14 @@ public class CareQueue {
 			}
 		return listing;
 		}
+	
+	public int numberOfDoctors() 
+		{
+		return this.doctorList.size;
+		}
+	
+	public Link listDoctors() 
+		{
+		return this.doctorList.listAll();
+		}
 }
